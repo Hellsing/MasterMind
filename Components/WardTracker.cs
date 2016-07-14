@@ -453,7 +453,7 @@ namespace MasterMind.Components
                         case Type.BlueTrinket:
                             return 1;
                         case Type.VisionWard:
-                            return 5;
+                            return 4;
                         default:
                             return 3;
                     }
