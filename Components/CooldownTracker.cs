@@ -26,7 +26,7 @@ namespace MasterMind.Components
     {
         #region Offsets
 
-        public static readonly Vector2 OverlayOffset = new Vector2(1, 19);
+        public static readonly Vector2 OverlayOffset = new Vector2(1.25f, 19.25f);
         public static readonly Vector2 OverlaySummonerOffset = OverlayOffset + new Vector2(106, 4);
 
         public static readonly Vector2 SpellOffset = OverlayOffset + new Vector2(30, 5);
@@ -181,7 +181,7 @@ namespace MasterMind.Components
                 }
 
                 // Get the HP bar position
-                var pos = hero.HPBarPosition.Round();
+                var pos = hero.HPBarPosition;
 
                 try
                 {
@@ -192,7 +192,7 @@ namespace MasterMind.Components
                         var spell = hero.Spellbook.GetSpell((SpellSlot) i);
 
                         // Start position of the line
-                        var start = pos + SpellOffset + new Vector2(i * (SpellSize.X + SpellLinePadding), 0);
+                        var start = (pos + SpellOffset + new Vector2(i * (SpellSize.X + SpellLinePadding), 0)).Round();
 
                         // Get the current cooldown
                         var cooldown = Math.Max(0, spell.CooldownExpires - Game.Time);
@@ -228,7 +228,7 @@ namespace MasterMind.Components
                     }
 
                     // Draw the overlay
-                    SpellOverlaySprite.Draw(pos + OverlayOffset);
+                    SpellOverlaySprite.Draw((pos + OverlayOffset).Round());
                 }
                 catch (Exception e)
                 {
@@ -251,7 +251,7 @@ namespace MasterMind.Components
                             var spell = hero.Spellbook.GetSpell(i + SpellSlot.Summoner1);
 
                             // Start position of the line
-                            var start = pos + SummonerOffset + new Vector2(i * (SummonerSize.X + SummonerPadding), 0);
+                            var start = (pos + SummonerOffset + new Vector2(i * (SummonerSize.X + SummonerPadding), 0)).Round();
 
                             // Get the current cooldown
                             var cooldown = Math.Max(0, spell.CooldownExpires - Game.Time);
@@ -316,7 +316,7 @@ namespace MasterMind.Components
                                     }
                                     CooldownText.TextValue = text;
                                     CooldownText.Position = new Vector2(start.X + SummonerSize.X / 2 - CooldownText.Bounding.Width / 2f + ((SummonerCooldownTextPadding / 2) * (i % 2 == 0 ? -1 : 1)),
-                                        start.Y + SummonerCooldownTextOffset);
+                                        start.Y + SummonerCooldownTextOffset).Round();
                                     CooldownText.Draw();
                                 }
                                 catch (Exception e)
@@ -328,7 +328,7 @@ namespace MasterMind.Components
                         }
 
                         // Draw the overlay
-                        SummonerOverlaySprite.Draw(pos + OverlaySummonerOffset);
+                        SummonerOverlaySprite.Draw((pos + OverlaySummonerOffset).Round());
                     }
                     catch (Exception e)
                     {
@@ -434,6 +434,16 @@ namespace MasterMind.Components
         public static Vector2 Round(this Vector2 vector)
         {
             return new Vector2((int) Math.Round(vector.X), (int) Math.Round(vector.Y));
+        }
+
+        public static Vector2 Floor(this Vector2 vector)
+        {
+            return new Vector2((int) Math.Floor(vector.X), (int) Math.Floor(vector.Y));
+        }
+
+        public static Vector2 c3iL(this Vector2 vector)
+        {
+            return new Vector2((int) Math.Ceiling(vector.X), (int) Math.Ceiling(vector.Y));
         }
 
         public static Color GetSpellColor(this SpellDataInst spellData, float percent = 0)
