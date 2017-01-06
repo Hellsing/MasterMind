@@ -385,6 +385,7 @@ namespace MasterMind.Components
                 BlueTrinket = 3,
                 SightWard = 0,
                 VisionWard = 1,
+                JammerDevice = 1,
                 YellowTrinket = 2
             }
 

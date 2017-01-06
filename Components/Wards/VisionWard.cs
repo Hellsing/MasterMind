@@ -8,15 +8,15 @@
         }
         public override string BaseSkinName
         {
-            get { return "VisionWard"; }
+            get { return "JammerDevice"; }
         }
         public override string DetectingBuffName
         {
-            get { return "sharedvisionwardbuff"; }
+            get { return "JammerDevice"; }
         }
         public override string DetectingSpellCastName
         {
-            get { return "VisionWard"; }
+            get { return "JammerDevice"; }
         }
         public override WardTracker.Ward.Type Type
         {
