@@ -31,7 +31,8 @@ namespace MasterMind.Components
             new BlueTrinket(),
             new SightWard(),
             new VisionWard(),
-            new YellowTrinket()
+            new YellowTrinket(),
+            new Shroom()
         };
 
         public Menu Menu { get; private set; }
@@ -131,6 +132,7 @@ namespace MasterMind.Components
                 {
                     case Ward.Type.SightWard:
                     case Ward.Type.YellowTrinket:
+                    case Ward.Type.Shroom:
 
                         if (fakeWard.RemainingTime <= 0)
                         {
@@ -246,8 +248,9 @@ namespace MasterMind.Components
             if (sender.Type == GameObjectType.obj_AI_Minion)
             {
                 // Remove it from the lists
-                CreatedWards.Remove((Obj_AI_Base) sender);
-                ActiveWards.RemoveAll(o => !o.IsFakeWard && o.Handle.IdEquals(sender));
+                CreatedWards.Remove((Obj_AI_Base)sender);                   
+                if (ActiveWards.RemoveAll(o => !o.IsFakeWard && o.Handle.IdEquals(sender)) > 0)
+                    Console.Write("removed");
             }
         }
 
@@ -282,6 +285,7 @@ namespace MasterMind.Components
             {
                 if (CreatedWards.Contains(sender))
                 {
+                    Console.Write("ward detected");
                     // Check if there is already a fake ward at that position
                     var fakeWard = ActiveWards.Where(o => o.IsFakeWard && o.Team == sender.Team)
                         .Where(
@@ -341,6 +345,7 @@ namespace MasterMind.Components
                 // Check if any detectable ward matches the spell cast
                 foreach (var ward in DetectableWards.Where(ward => ward.MatchesSpellCast(sender, args)))
                 {
+                    Console.Write("creating");
                     ActiveWards.Add(ward.CreateFakeWard((AIHeroClient) sender, args.End));
                     break;
                 }
@@ -386,7 +391,8 @@ namespace MasterMind.Components
                 SightWard = 0,
                 VisionWard = 1,
                 JammerDevice = 1,
-                YellowTrinket = 2
+                YellowTrinket = 2,
+                Shroom = 4
             }
 
             public enum PinkColors
@@ -510,6 +516,7 @@ namespace MasterMind.Components
                     {
                         case Type.SightWard:
                         case Type.YellowTrinket:
+                        case Type.Shroom:
                             return
                                 IsVisible
                                     ? (int) Handle.Mana
@@ -646,8 +653,8 @@ namespace MasterMind.Components
 
             public static bool IsWard(Obj_AI_Base obj, out Type wardType)
             {
-                // Wards cannot have more than 5 max health
-                if (obj.MaxHealth <= 5)
+                // Wards/Shrooms cannot have more than 6 max health
+                if (obj.MaxHealth <= 6)
                 {
                     // Validate base skin
                     if (!string.IsNullOrWhiteSpace(obj.BaseSkinName))
