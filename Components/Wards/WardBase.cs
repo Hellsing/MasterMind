@@ -25,7 +25,7 @@ namespace MasterMind.Components.Wards
         }
 
         public virtual bool MatchesBuffGain(Obj_AI_Base sender, Obj_AI_BaseBuffGainEventArgs args)
-        {   
+        {
             return sender.BaseSkinName == BaseSkinName
                    && args.Buff.Name == DetectingBuffName;
         }
@@ -37,8 +37,8 @@ namespace MasterMind.Components.Wards
 
         public virtual WardTracker.Ward CreateWard(AIHeroClient caster, Obj_AI_Base wardHandle)
         {
-            // Wards/Shrooms cannot have more than 6 max health
-            if (wardHandle.MaxHealth <= 6)
+            // Wards cannot have more than 5 max health
+            if (wardHandle.MaxHealth <= 5)
             {
                 // Validate base skin
                 if (!string.IsNullOrWhiteSpace(wardHandle.BaseSkinName) && wardHandle.BaseSkinName == BaseSkinName)
@@ -69,8 +69,6 @@ namespace MasterMind.Components.Wards
                     return 150;
                 case WardTracker.Ward.Type.YellowTrinket:
                     return (int) Math.Ceiling(60 + 3.5 * (caster.Level - 1));
-                case WardTracker.Ward.Type.Shroom:
-                    return 300;
             }
 
             return -1;
