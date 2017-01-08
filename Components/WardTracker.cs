@@ -30,7 +30,7 @@ namespace MasterMind.Components
         {
             new BlueTrinket(),
             new SightWard(),
-            new VisionWard(),
+            new ControlWard(),
             new YellowTrinket(),
             new Shroom()
         };
@@ -389,7 +389,6 @@ namespace MasterMind.Components
             {
                 BlueTrinket = 3,
                 SightWard = 0,
-                VisionWard = 1,
                 JammerDevice = 1,
                 YellowTrinket = 2,
                 Shroom = 4
@@ -405,9 +404,9 @@ namespace MasterMind.Components
             {
                 // Load the textures
                 MasterMind.TextureLoader.Load("BlueTrinket", Resources.BlueTrinket);
-                MasterMind.TextureLoader.Load("VisionWard", Resources.VisionWard);
-                MasterMind.TextureLoader.Load("VisionWard_Enemy", Resources.VisionWard_Enemy);
-                MasterMind.TextureLoader.Load("VisionWard_Friendly", Resources.VisionWard_Friendly);
+                MasterMind.TextureLoader.Load("ControlWard", Resources.ControlWard);
+                MasterMind.TextureLoader.Load("ControlWard_Enemy", Resources.ControlWard_Enemy);
+                MasterMind.TextureLoader.Load("ControlWard_Friendly", Resources.ControlWard_Friendly);
                 MasterMind.TextureLoader.Load("YellowTrinket_Enemy", Resources.YellowTrinket_Enemy);
                 MasterMind.TextureLoader.Load("YellowTrinket_Friendly", Resources.YellowTrinket_Friendly);
             }
@@ -459,7 +458,7 @@ namespace MasterMind.Components
                     {
                         case Type.BlueTrinket:
                             return 1;
-                        case Type.VisionWard:
+                        case Type.JammerDevice:
                             return 4;
                         default:
                             return 3;
@@ -487,12 +486,12 @@ namespace MasterMind.Components
                         case Type.BlueTrinket:
                             return MasterMind.TextureLoader["BlueTrinket"];
                         // Pink wards
-                        case Type.VisionWard:
+                        case Type.JammerDevice:
                             return (MasterMind.IsSpectatorMode ? Team == GameObjectTeam.Order : Team.IsAlly())
-                                ? MasterMind.TextureLoader["VisionWard_Friendly"]
+                                ? MasterMind.TextureLoader["ControlWard_Friendly"]
                                 : (MasterMind.IsSpectatorMode
-                                    ? MasterMind.TextureLoader["VisionWard_Enemy"]
-                                    : MasterMind.TextureLoader[PinkColor == PinkColors.Pink ? "VisionWard" : "VisionWard_Enemy"]);
+                                    ? MasterMind.TextureLoader["ControlWard_Enemy"]
+                                    : MasterMind.TextureLoader[PinkColor == PinkColors.Pink ? "ControlWard" : "ControlWard_Enemy"]);
                         // All other regular wards
                         default:
                             return (MasterMind.IsSpectatorMode ? Team == GameObjectTeam.Order : Team.IsAlly())
@@ -546,7 +545,7 @@ namespace MasterMind.Components
                             return Color.CornflowerBlue;
                         case Type.SightWard:
                             return Color.LimeGreen;
-                        case Type.VisionWard:
+                        case Type.JammerDevice:
                             return Color.DeepPink;
                         case Type.YellowTrinket:
                             return Color.Yellow;
