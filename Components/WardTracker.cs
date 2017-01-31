@@ -31,8 +31,7 @@ namespace MasterMind.Components
             new BlueTrinket(),
             new SightWard(),
             new ControlWard(),
-            new YellowTrinket(),
-            new Shroom()
+            new YellowTrinket()
         };
 
         public Menu Menu { get; private set; }
