@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MasterMind")]
-[assembly: AssemblyCopyright("Copyright © Hellsing 2016")]
+[assembly: AssemblyCopyright("Copyright © Hellsing 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -36,5 +36,5 @@ using System.Runtime.InteropServices;
 
 // [assembly: AssemblyVersion("1.1.*")]
 
-[assembly: AssemblyVersion("6.19.1")]
-[assembly: AssemblyFileVersion("6.19.1")]
+[assembly: AssemblyVersion("7.2.1")]
+[assembly: AssemblyFileVersion("7.2.1")]
