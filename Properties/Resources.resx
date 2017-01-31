@@ -130,14 +130,14 @@
   <data name="SummonerSlots" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\cooldowntracker\summonerslots.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VisionWard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\wardtracker\visionward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ControlWard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\wardtracker\ControlWard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VisionWard_Enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\wardtracker\visionward_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ControlWard_Enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\wardtracker\ControlWard_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VisionWard_Friendly" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\wardtracker\visionward_friendly.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ControlWard_Friendly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\wardtracker\ControlWard_friendly.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="YellowTrinket_Enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\wardtracker\yellowtrinket_enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -73,6 +73,36 @@ namespace MasterMind.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ControlWard {
+            get {
+                object obj = ResourceManager.GetObject("ControlWard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ControlWard_Enemy {
+            get {
+                object obj = ResourceManager.GetObject("ControlWard_Enemy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ControlWard_Friendly {
+            get {
+                object obj = ResourceManager.GetObject("ControlWard_Friendly", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MainFrame {
             get {
                 object obj = ResourceManager.GetObject("MainFrame", resourceCulture);
@@ -139,36 +169,6 @@ namespace MasterMind.Properties {
         internal static System.Drawing.Bitmap UnknownChamp {
             get {
                 object obj = ResourceManager.GetObject("UnknownChamp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap VisionWard {
-            get {
-                object obj = ResourceManager.GetObject("VisionWard", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap VisionWard_Enemy {
-            get {
-                object obj = ResourceManager.GetObject("VisionWard_Enemy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap VisionWard_Friendly {
-            get {
-                object obj = ResourceManager.GetObject("VisionWard_Friendly", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

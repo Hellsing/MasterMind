@@ -1,26 +1,26 @@
 ﻿namespace MasterMind.Components.Wards
 {
-    public sealed class VisionWard : WardBase
+    public sealed class ControlWard : WardBase
     {
         public override string FriendlyName
         {
-            get { return "Vision Ward (Pink)"; }
+            get { return "Control Ward (Pink)"; }
         }
         public override string BaseSkinName
         {
-            get { return "VisionWard"; }
+            get { return "JammerDevice"; }
         }
         public override string DetectingBuffName
         {
-            get { return "sharedvisionwardbuff"; }
+            get { return "JammerDevice"; }
         }
         public override string DetectingSpellCastName
         {
-            get { return "VisionWard"; }
+            get { return "JammerDevice"; }
         }
         public override WardTracker.Ward.Type Type
         {
-            get { return WardTracker.Ward.Type.VisionWard; }
+            get { return WardTracker.Ward.Type.JammerDevice; }
         }
     }
 }
