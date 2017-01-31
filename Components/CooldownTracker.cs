@@ -102,6 +102,7 @@ namespace MasterMind.Components
 
         public Menu Menu { get; private set; }
 
+        public CheckBox TrackMyHero { get; private set; }
         public CheckBox TrackAllies { get; private set; }
         public CheckBox TrackEnemies { get; private set; }
         public CheckBox DrawSummoners { get; private set; }
@@ -135,6 +136,9 @@ namespace MasterMind.Components
                 MasterMind.IsSpectatorMode ? "blue" : "allies", MasterMind.IsSpectatorMode ? "red team" : "enemies"));
             Menu.AddSeparator();
 
+            if (!MasterMind.IsSpectatorMode)
+                TrackMyHero = Menu.Add("myhero", new CheckBox("Track My Hero", false));
+
             TrackAllies = Menu.Add("allies", new CheckBox(string.Format("Track {0}", MasterMind.IsSpectatorMode ? "blue team" : "allies")));
             TrackEnemies = Menu.Add("enemies", new CheckBox(string.Format("Track {0}", MasterMind.IsSpectatorMode ? "red team" : "enemies")));
             DrawSummoners = Menu.Add("summoners", new CheckBox("Draw summoner spells"));
@@ -162,7 +166,7 @@ namespace MasterMind.Components
         // ReSharper disable once FunctionComplexityOverflow
         private void OnDraw(EventArgs args)
         {
-            foreach (var hero in EntityManager.Heroes.AllHeroes.Where(o => (MasterMind.IsSpectatorMode || !o.IsMe) && o.IsHPBarRendered && o.IsVisible))
+            foreach (var hero in EntityManager.Heroes.AllHeroes.Where(o => (MasterMind.IsSpectatorMode || (TrackMyHero != null && TrackMyHero.CurrentValue || !o.IsMe)) && o.IsHPBarRendered && o.IsVisible))
             {
                 // Validate team
                 if (hero.Team == AlliedTeam)
