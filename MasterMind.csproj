@@ -88,7 +88,7 @@
     <Compile Include="Components\Utility.cs" />
     <Compile Include="Components\Wards\YellowTrinket.cs" />
     <Compile Include="Components\Wards\SightWard.cs" />
-    <Compile Include="Components\Wards\VisionWard.cs" />
+    <Compile Include="Components\Wards\ControlWard.cs" />
     <Compile Include="Components\Wards\BlueTrinket.cs" />
     <Compile Include="Components\Wards\WardBase.cs" />
     <Compile Include="Components\WardTracker.cs" />
